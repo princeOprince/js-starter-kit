@@ -4,7 +4,9 @@
   "description": "JavaScript development environment",
   "scripts": {
     "prestart": "node buildScripts/startMessage.js",
-    "start": "node buildScripts/srcServer.js"
+    "start": "node buildScripts/srcServer.js",
+    "localtunnel": "lt --port 3000 --subdomain starter",
+    "share": "run-p start localtunnel"
   },
   "author": "Prince O Prince",
   "license": "MIT",
