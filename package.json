@@ -2,7 +2,10 @@
   "name": "js-starter-kit",
   "version": "1.0.0",
   "description": "JavaScript development environment",
-  "scripts": {},
+  "scripts": {
+    "prestart": "node buildScripts/startMessage.js",
+    "start": "node buildScripts/srcServer.js"
+  },
   "author": "Prince O Prince",
   "license": "MIT",
   "dependencies": {
