@@ -23,20 +23,20 @@ app.get('/users', (req, res) => {
   res.json([
     {
       "id": 1,
-      "firstname": "Bob",
-      "lastname": "Smith",
+      "firstName": "Bob",
+      "lastName": "Smith",
       "email": "bob@gmail.com"
     },
     {
       "id": 2,
-      "firstname": "Tammy",
-      "lastname": "Norton",
+      "firstName": "Tammy",
+      "lastName": "Norton",
       "email": "tnorton@yahoo.com"
     },
     {
       "id": 3,
-      "firstname": "Tina",
-      "lastname": "Lee",
+      "firstName": "Tina",
+      "lastName": "Lee",
       "email": "lee.tina@hotmail.com"
     }
   ]);
