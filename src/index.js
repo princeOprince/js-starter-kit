@@ -1,4 +1,4 @@
-import { getUsers } from "./api/userApi";
+import { deleteUser, getUsers } from "./api/userApi";
 
 //  Populate table of users via API call
 getUsers().then(result => {
@@ -16,5 +16,17 @@ getUsers().then(result => {
     `;
 
     document.getElementById('users').innerHTML = usersBody;
-  })
-})
+
+    const deleteLinks = document.getElementsByClassName('deleteUser');
+
+    Array.from(deleteLinks, link => {
+      link.onclick = (ev) => {
+        const element = ev.target;
+        ev.preventDefault();
+        deleteUser(element.attributes['data-id'].value);
+        const row = element.parentNode.parentNode;
+        row.remove();
+      }
+    });
+  });
+});
