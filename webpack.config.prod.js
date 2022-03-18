@@ -5,6 +5,7 @@
 
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 export default {
   mode: "production",
@@ -19,6 +20,11 @@ export default {
     filename: "[name].[chunkhash].js",
   },
   plugins: [
+    //  Generate an external css file with a hash in the filename
+    new MiniCssExtractPlugin({
+      filename: "[name].[chunkhash].css"
+    }),
+
     //  Create HTML file that includes a reference to bundled JS
     new HtmlWebpackPlugin({
       template: "src/index.html"
@@ -27,7 +33,7 @@ export default {
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, use: ["babel-loader"] },
-      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+      { test: /\.css$/, use: [MiniCssExtractPlugin.loader, "css-loader"] },
     ]
   }
 };
